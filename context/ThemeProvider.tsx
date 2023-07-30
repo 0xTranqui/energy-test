@@ -10,6 +10,7 @@ import tinycolor from 'tinycolor2'
 import { useContractRead } from 'wagmi'
 import { platformThemeRegistryAbi } from '../abi/platformThemeRegistryAbi'
 import { useWeb3Storage } from '../hooks/useWeb3Storage'
+import { toPlainObject } from 'lodash'
 
 type ThemeProviderProps = {
   children?: ReactNode
@@ -137,7 +138,7 @@ export const ThemeProvider = memo(function ThemeProvider({
     abi: platformThemeRegistryAbi,
     functionName: 'getPlatformTheme',
     args: [platformIndex as bigint],
-    enabled: false,
+    enabled: true,
     onSuccess(data: any) {
       setThemeCID(data.substring('ipfs://'.length))
     },
@@ -145,6 +146,7 @@ export const ThemeProvider = memo(function ThemeProvider({
       console.log(error)
     },
   })
+
   /**
    * Unpack the metadata stored on ipfs
    */

@@ -11,7 +11,7 @@ export function useSetRegistry() {
     address: "0x9a23AE640040e4d34E9e00E500003000017144F4", // deterministic address of theme registry
     abi: platformThemeRegistryAbi,
     functionName: 'newPlatformIndex',
-    args: ["0x153D2A196dc8f1F6b9Aa87241864B3e4d4FEc170", "ipfsURI/"]
+    args: ["0x153D2A196dc8f1F6b9Aa87241864B3e4d4FEc170", "sampleURI/"]
   });
 
   const {
